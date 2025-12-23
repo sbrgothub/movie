@@ -1,8 +1,9 @@
 import streamlit as st
+import gzip
 import pickle
 from sklearn.metrics.pairwise import cosine_similarity
-with open('movie.pkl','rb') as obj:
-  data=pickle.load(obj)
+with gzip.open("movie.pkl.gz", "rb") as obj:
+    data = pickle.load(obj)
 movie_dictionary=data['movie_dict']
 
 def recomend(movie,n=6):
